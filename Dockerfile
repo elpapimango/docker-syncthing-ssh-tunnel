@@ -1,5 +1,5 @@
-FROM alpine:3.15
-MAINTAINER Cagatay Gurturk <cguertuerk@ebay.de>
+FROM alpine:3.21
+MAINTAINER Mattias Holmertz <mholmertz@proton.mee>
 
 RUN apk add --update openssh-client && rm -rf /var/cache/apk/*
 
@@ -9,5 +9,6 @@ $SSH_DEBUG \
 -o StrictHostKeyChecking=no \
 -N $TUNNEL_HOST \
 -L *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
+-R *:$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT \
 && while true; do sleep 30; done;
 EXPOSE 1-65535
