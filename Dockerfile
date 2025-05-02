@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:3.21.3
 MAINTAINER Mattias Holmertz <mholmertz@proton.mee>
 
 RUN apk add --update openssh-client && rm -rf /var/cache/apk/*
